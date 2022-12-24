@@ -4,15 +4,15 @@ pipeline {
     stages {
       stage(vcs) {
         steps {
-                git branch:"main",url:"https://github.com/wakaleo/game-of-life.git"
+                git branch:"master",url:"https://github.com/ramesh1469/game-of-life.git"
         }
        stage(build) {
          steps {
             sh '''	
                 cd /home/ubuntu/game-of-life
                 docker image build -t qtram:1.0 .
-				docker image tag qtram:2.0 rameshram1/qtram:1.0
-			    docker image push rameshram1/qtram:1.0
+	        docker image tag qtram:2.0 rameshram1/qtram:1.0
+	        docker image push rameshram1/qtram:1.0
               '''
          }
        }  
