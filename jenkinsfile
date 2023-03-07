@@ -6,12 +6,13 @@ pipeline {
         steps {
                 git branch:"master",url:"https://github.com/ramesh1469/game-of-life.git"
         }
+      }
        stage(build) {
          steps {
             sh '''	
-                docker image build -t qtram:2.0 .
-	        docker image tag qtram:2.1 rameshram1/qtram:2.0
-	        docker image push rameshram1/qtram:2.0
+                docker image build -t ram:2.0 .
+	              docker image tag ram:2.0 rameshram1/ram:2.0
+	              docker image push rameshram1/ram:2.0
               '''
          }
        }  
