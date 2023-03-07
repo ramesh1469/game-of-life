@@ -1,5 +1,5 @@
 pipeline {
-    agent { lable: "terraform" }
+    agent { lable: "Node-1" }
     triggers { pollSCM('* * * * *') }
     stages {
       stage(vcs) {
@@ -10,11 +10,12 @@ pipeline {
          steps {
             sh '''	
                 cd /home/ubuntu/game-of-life
-                docker image build -t qtram:1.0 .
-	        docker image tag qtram:2.0 rameshram1/qtram:1.0
-	        docker image push rameshram1/qtram:1.0
+                docker image build -t qtram:2.0 .
+	              docker image tag qtram:2.1 rameshram1/qtram:2.0
+	              docker image push rameshram1/qtram:2.0
               '''
          }
        }  
     }
+ }
 }
