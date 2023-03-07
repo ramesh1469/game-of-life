@@ -2,17 +2,17 @@ pipeline {
     agent { label "Node-1"}
     triggers { pollSCM('* * * * *') }
     stages {
-      stage(vcs) {
+      stage (vcs) {
         steps {
                 git branch:"master",url:"https://github.com/ramesh1469/game-of-life.git"
         }
-       stage(build) {
+       stage (build) {
          steps {
             sh '''	
                 cd /home/ubuntu/game-of-life
                 docker image build -t qtram:2.0 .
-	              docker image tag qtram:2.1 rameshram1/qtram:2.0
-	              docker image push rameshram1/qtram:2.0
+	        docker image tag qtram:2.1 rameshram1/qtram:2.0
+	        docker image push rameshram1/qtram:2.0
               '''
          }
        }  
