@@ -5,7 +5,8 @@ pipeline {
       stage (vcs){
         steps {
                 git branch:"master",url:"https://github.com/ramesh1469/game-of-life.git"
-        }
+          }
+	}
        stage (build){
          steps {
             sh '''	
@@ -18,4 +19,4 @@ pipeline {
        }  
     }
  }
-}
+
